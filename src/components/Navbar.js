@@ -1,27 +1,27 @@
-import React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import { useState, useEffect } from "react"
-import { useScrollRestoration } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import { useState, useEffect } from "react";
+import { useScrollRestoration } from "gatsby";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
-  const [currentPage, setCurrentPage] = useState("")
+  const [open, setOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState("");
 
   useEffect(() => {
     open
       ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "visible")
-  }, [open])
+      : (document.body.style.overflow = "visible");
+  }, [open]);
 
-  const hidden = " hidden"
-  const visible = " visible"
+  const hidden = " hidden";
+  const visible = " visible";
 
   const handleClick = () => {
-    console.log("state before click:", open)
-    setOpen(!open)
-    console.log("state:", open)
-  }
+    console.log("state before click:", open);
+    setOpen(!open);
+    console.log("state:", open);
+  };
 
   const closeButton = () => (
     <button
@@ -47,7 +47,7 @@ export default function Navbar() {
         />
       </svg>
     </button>
-  )
+  );
 
   const openButton = () => (
     <div class="space-y-2" onClick={handleClick}>
@@ -55,13 +55,13 @@ export default function Navbar() {
       <span class="block w-8 h-0.5 bg-gray-600"></span>
       <span class="block w-5 h-0.5 bg-gray-600"></span>
     </div>
-  )
+  );
 
   const activeStyles = {
     color: "#f5f5f5",
     borderBottomWidth: 2,
     borderBottomColor: "#f5f5f5",
-  }
+  };
 
   return (
     <nav className="border-b-2">
@@ -152,21 +152,21 @@ export default function Navbar() {
         <div className="w-full h-full flex items-start justify-start max-auto text-neutral-400">
           <div className="pl-6 pt-40 text-lg">
             <Link
-              to="/about-me"
+              to="/"
               className="py-2 mb-3 block border-b-2 border-neutral-400"
               activeStyle={activeStyles}
             >
               ABOUT ME
             </Link>
             <Link
-              to="/portfolio"
+              to="/"
               className="py-2 mb-3 block border-b-2 border-neutral-400"
               activeStyle={activeStyles}
             >
               PORTFOLIO
             </Link>
             <Link
-              to="/contact"
+              to="/"
               className="py-2 mb-3 block border-b-2 border-neutral-400"
               activeStyle={activeStyles}
             >
@@ -176,5 +176,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
